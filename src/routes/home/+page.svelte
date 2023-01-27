@@ -1,7 +1,11 @@
 <script lang="js">
+  import { browser } from "$app/environment";
+
   import authStore from "/src/lib/stores/auth.js";
   import { onMount } from "svelte";
   import HorizontalUserCard from "/src/lib/components/HorizontalUserCard.svelte";
+
+  $: if (browser) document.title = "Home";
 
   let users = [];
 
@@ -26,9 +30,11 @@
   {/if}
   <a href="/test">Go to test</a>
 
-  <div>
+  <div class="flex flex-col m-5">
     {#each users as user}
-      <HorizontalUserCard {user} />
+      <div class="mb-2">
+        <HorizontalUserCard {user} />
+      </div>
     {/each}
   </div>
 </div>
