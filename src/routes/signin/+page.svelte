@@ -1,6 +1,8 @@
 <script lang="js">
   import { browser } from "$app/environment";
   import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+  import { goto } from "$app/navigation";
+  import authStore from "/src/lib/stores/auth.js";
 
   $: if (browser) document.title = "Sign in";
 
@@ -17,22 +19,32 @@
 
   const loginWithEmail = async () => {
     if (!password) {
-      console.log("Missing password");
+      console.log("ERROR: Missing password");
       return;
     }
 
     if (!validateEmail(email)) {
-      console.log("Invalid email");
+      console.log("ERROR: Invalid email");
       return;
     }
+
+    console.log("Success");
   };
 
   const loginWithGoogle = async () => {
-    const auth = getAuth();
-    const provider = new GoogleAuthProvider();
+    try {
+      const auth = getAuth();
+      const provider = new GoogleAuthProvider();
 
-    const result = await signInWithPopup(auth, provider);
-    console.log(result.user);
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      authStore.set(user);
+      authStore.set((isLoggedIn = true));
+      await goto("/home");
+    } catch (e) {
+      console.log(e);
+    }
   };
 </script>
 
@@ -69,6 +81,11 @@
           id="password"
           type="password"
           placeholder="********"
+          on:keydown={({ key }) => {
+            key === "Enter" && validateEmail(email)
+              ? loginWithEmail(email)
+              : undefined;
+          }}
         />
       </div>
       <div class="flex items-center">

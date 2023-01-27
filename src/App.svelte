@@ -1,6 +1,7 @@
 <script lang="js">
   import "./app.css";
-  import { onMount } from "svelte";
+  import authStore from "/src/lib/stores/auth.js";
+  import { goto } from "$app/navigation";
   import { initializeApp } from "firebase/app";
 
   const firebaseConfig = {
@@ -15,9 +16,13 @@
 
   const app = initializeApp(firebaseConfig);
 
-  onMount(async (user) => {});
+  authStore.subscribe(async ({ isLoggedIn }) => {
+    if (!isLoggedIn) {
+      await goto("/signin");
+    }
+  });
 </script>
 
-<div class="bg-gray-700 h-screen">
+<div class="bg-white h-screen">
   <slot />
 </div>
