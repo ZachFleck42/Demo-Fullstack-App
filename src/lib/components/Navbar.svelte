@@ -19,8 +19,8 @@
       name: "Users",
     },
     {
-      href: "/app/about",
-      name: "About",
+      href: "/app/support",
+      name: "Support",
     },
   ];
 
@@ -50,7 +50,7 @@
     const auth = getAuth();
     signOut(auth)
       .then(async () => {
-        $authStore.set({
+        authStore.set({
           isLoggedIn: false,
           user: {},
         });

@@ -14,3 +14,5 @@
     last_name = full_name[1];
   });
 </script>
+
+{$first_name}

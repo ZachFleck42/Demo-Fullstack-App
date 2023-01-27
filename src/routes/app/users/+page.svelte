@@ -1,14 +1,12 @@
 <script lang="js">
   import userStore from "/src/lib/stores/users.js";
-  import HorizontalUserCard from "/src/lib/components/HorizontalUserCard.svelte";
+  import UserCard from "/src/lib/components/UserCard.svelte";
 </script>
 
-<div class="flex">
-  <div class="mx-auto flex-col mt-5 w-1/3">
-    {#each $userStore.users as user}
-      <div class="mb-2">
-        <HorizontalUserCard {user} />
-      </div>
-    {/each}
-  </div>
+<div class="grid grid-cols-3 gap-2">
+  {#each $userStore.users as user}
+    <div class="mb-2">
+      <UserCard {user} />
+    </div>
+  {/each}
 </div>

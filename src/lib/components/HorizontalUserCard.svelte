@@ -18,7 +18,7 @@
       alt="{first_name} {last_name}'s Avatar"
     />
     <div class="flex flex-col justify-between p-4">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+      <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
         {first_name}
         {last_name}
       </h5>
