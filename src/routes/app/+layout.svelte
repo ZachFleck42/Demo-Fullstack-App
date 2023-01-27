@@ -2,6 +2,7 @@
   import App from "../../App.svelte";
   import authStore from "/src/lib/stores/auth.js";
   import Navbar from "/src/lib/components/Navbar.svelte";
+  import Footer from "/src/lib/components/Footer.svelte";
 
   let userLoggedIn = false;
 
@@ -17,6 +18,7 @@
     {#if userLoggedIn}
       <Navbar />
       <slot />
+      <Footer />
     {/if}
   </svelte:fragment>
 </App>

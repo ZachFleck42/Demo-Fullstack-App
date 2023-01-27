@@ -70,16 +70,6 @@
       </div>
 
       <div class="flex items-center">
-        <!-- Change Theme -->
-        <button
-          on:click={() => console.log("Theme change")}
-          class="mx-8 rounded-full"
-        >
-          <div class="m-auto p-1">
-            <p>T</p>
-          </div>
-        </button>
-
         <!-- Profile Navigation -->
         <div class="relative" bind:this={menu}>
           <button
@@ -115,13 +105,16 @@
               class="origin-top-right overflow-hidden absolute right-0 w-36 bg-gray-400
           rounded-md shadow-md"
             >
-              <a href="/app/profile" class="block px-4 py-2 hover:bg-gray-300"
+              <a
+                on:click={() => (show = !show)}
+                href="/app/profile"
+                class="block px-4 py-2 hover:bg-gray-300 active:bg-gray-500 transition duration-100 ease-in-out"
                 >Profile</a
               >
               <button
                 on:click={logOut}
-                class="block w-full text-left px-4 py-2 hover:bg-gray-300"
-                >Logout</button
+                class="block w-full text-left px-4 py-2 hover:bg-gray-300 active:bg-gray-500 transition duration-100 ease-in-out"
+                >Sign Out</button
               >
             </div>
           {/if}
