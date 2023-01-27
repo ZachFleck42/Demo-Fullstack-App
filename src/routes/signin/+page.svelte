@@ -53,13 +53,15 @@
   $: if ($authStore.user) redirect();
 </script>
 
-<div class="flex flex-col h-full w-full justify-center bg-white">
+<div class="flex flex-col h-full w-full justify-center bg-white border-">
   <div class="mx-auto h-24 my-8">
     <img src="/src/assets/Iris_logo.png" alt="Iris Automation logo" />
   </div>
 
   <div class="w-full max-w-sm mx-auto">
-    <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form
+      class="shadow-md rounded px-8 pt-6 pb-8 mb-4 border-t-gray-50 border-t-2"
+    >
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
           Email
@@ -109,7 +111,7 @@
             <div class="w-full border-t border-gray-500 mb-3" />
           </div>
           <div class="relative flex justify-center">
-            <span class="select-none bg-white px-3 mb-4 font-light">
+            <span class="select-none bg-white px-3 mb-4 font-normal">
               Or continue with
             </span>
           </div>
@@ -130,6 +132,9 @@
         </button>
       </div>
     </form>
-    <p class="text-center text-gray-500 text-xs">&copy;2023 Iris Automation</p>
+    <div class="flex">
+      <p class="pr-2 mx=-">New user?</p>
+      <p class="text-blue-400">Register here</p>
+    </div>
   </div>
 </div>
