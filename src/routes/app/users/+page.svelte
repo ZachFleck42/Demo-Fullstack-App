@@ -4,7 +4,7 @@
 </script>
 
 <div class="flex">
-  <div class="mx-auto flex-col m-5 w-1/3">
+  <div class="mx-auto flex-col mt-5 w-1/3">
     {#each $userStore.users as user}
       <div class="mb-2">
         <HorizontalUserCard {user} />
