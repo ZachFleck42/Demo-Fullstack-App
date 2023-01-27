@@ -5,6 +5,10 @@
   import { initializeApp } from "firebase/app";
   import { onMount } from "svelte";
 
+  let offline = false;
+  let theme = "";
+  // $: theme = $settingsStore?.theme === Theme.dark ? "dark" : "";
+
   onMount(() => {
     const firebaseConfig = {
       apiKey: "AIzaSyD3uTEt6BUD1j_TNWG6JDU6avSg6QULbGg",
