@@ -3,6 +3,7 @@
   import authStore from "/src/lib/stores/auth.js";
   import { scale } from "svelte/transition";
   import { onMount } from "svelte";
+  import { getAuth, signOut } from "firebase/auth";
 
   let show = false;
   let menu = null;
@@ -33,11 +34,21 @@
 
   const logOut = () => {
     const auth = getAuth();
-    signOut(auth);
+    signOut(auth)
+      .then(async () => {
+        $authStore.set({
+          isLoggedIn: false,
+          user: {},
+        });
+        await goto("/signin");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 </script>
 
-<div class="mx-auto max-w-8xl px-4 md:px-8 lg:px-12 border-b-2">
+<div class="mx-auto max-w-8xl px-4 md:px-8 lg:px-12 border-b-2 sticky">
   <div class="flex h-20 w-full items-center justify-between">
     <div class="flex w-full items-center justify-between">
       <div class="flex-shrink-0">
@@ -74,7 +85,7 @@
           <button on:click={() => (show = !show)}>
             {#if $authStore.user.photoURL}
               <div
-                class="flex h-12 w-12 rounded-full border-solid bg-blue-500 text-white hover:border-gray-300 hover:border-4"
+                class="flex h-12 w-12 rounded-full border-solid bg-blue-500 text-white hover:border-gray-300 hover:border-2"
               >
                 <div class="m-auto">
                   {$authStore.user.email[0].toUpperCase()}
@@ -94,10 +105,10 @@
                 class="block px-4 py-2 hover:bg-green-500 hover:text-green-100"
                 >Profile</a
               >
-              <a
-                href="/api/logout"
+              <button
+                on:click={logOut}
                 class="block px-4 py-2 hover:bg-green-500 hover:text-green-100"
-                >Logout</a
+                >Logout</button
               >
             </div>
           {/if}

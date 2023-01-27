@@ -4,9 +4,6 @@
   import authStore from "/src/lib/stores/auth.js";
   import { onMount } from "svelte";
   import HorizontalUserCard from "/src/lib/components/HorizontalUserCard.svelte";
-  import { getAuth, signOut } from "firebase/auth";
-  import Navbar from "/src/lib/components/Navbar.svelte";
-
   $: if (browser) document.title = "Home";
 
   onMount(async () => {
@@ -25,11 +22,8 @@
   });
 </script>
 
-<Navbar />
 <div>
-  <p>Hello {$authStore.user.email}</p>
-  <a href="/test">Go to test</a>
-
+  <a href="/home/test">Test</a>
   <div class="flex flex-col m-5">
     {#each $userStore.users as user}
       <div class="mb-2">
