@@ -20,7 +20,7 @@
   });
 </script>
 
-<div class="grid place-items-center h-screen">
+<div class="grid place-items-center">
   <svg
     fill="#000000"
     height="800px"
@@ -31,7 +31,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 512 512"
     xml:space="preserve"
-    class="w-48 h-48 fill-gray-700 mb-48"
+    class="w-48 h-48 fill-gray-700 my-72"
   >
     <g>
       <g>
