@@ -7,5 +7,5 @@ const authStore = writable({
 
 export default {
     subscribe: authStore.subscribe,
-    set: authStore.set
+    set: authStore.set,
 }

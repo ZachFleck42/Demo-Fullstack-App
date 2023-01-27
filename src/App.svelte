@@ -7,6 +7,9 @@
   import authStore from "/src/lib/stores/auth.js";
 
   let offline = false;
+  window.addEventListener("offline", () => (offline = true));
+  window.addEventListener("online", () => (offline = false));
+
   let theme = "";
   // $: theme = $settingsStore?.theme === Theme.dark ? "dark" : "";
 
@@ -21,7 +24,7 @@
       measurementId: "G-CKQSRS45DM",
     };
 
-    initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
 
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {

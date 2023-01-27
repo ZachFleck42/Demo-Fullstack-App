@@ -4,6 +4,7 @@
   import authStore from "/src/lib/stores/auth.js";
   import { onMount } from "svelte";
   import HorizontalUserCard from "/src/lib/components/HorizontalUserCard.svelte";
+  import { getAuth, signOut } from "firebase/auth";
 
   $: if (browser) document.title = "Home";
 
@@ -22,11 +23,17 @@
         return;
       });
   });
+
+  const logOut = () => {
+    const auth = getAuth();
+    signOut(auth);
+  };
 </script>
 
 <div>
   <p>Hello {$authStore.user.email}</p>
   <a href="/test">Go to test</a>
+  <p on:click={logOut}>Log out</p>
 
   <div class="flex flex-col m-5">
     {#each $userStore.users as user}
