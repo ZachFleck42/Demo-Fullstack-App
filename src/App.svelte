@@ -37,6 +37,6 @@
   });
 </script>
 
-<div class="bg-white h-screen">
+<div class="bg-gray-100 h-screen">
   <slot />
 </div>

@@ -48,7 +48,7 @@
   };
 </script>
 
-<div class="mx-auto max-w-8xl px-4 md:px-8 lg:px-12 border-b-2 sticky">
+<div class="mx-auto max-w-8xl px-4 md:px-8 lg:px-12 border-b-2 bg-white">
   <div class="flex h-20 w-full items-center justify-between">
     <div class="flex w-full items-center justify-between">
       <div class="flex-shrink-0">
@@ -112,15 +112,15 @@
             <div
               in:scale={{ duration: 100, start: 0.95 }}
               out:scale={{ duration: 75, start: 0.95 }}
-              class="origin-top-right overflow-hidden absolute right-0 w-36 bg-slate-400
+              class="origin-top-right overflow-hidden absolute right-0 w-36 bg-gray-400
           rounded-md shadow-md"
             >
-              <a href="/profile" class="block px-4 py-2 hover:bg-slate-300 "
+              <a href="/app/profile" class="block px-4 py-2 hover:bg-gray-300"
                 >Profile</a
               >
               <button
                 on:click={logOut}
-                class="block w-full text-left px-4 py-2 hover:bg-slate-300 "
+                class="block w-full text-left px-4 py-2 hover:bg-gray-300"
                 >Logout</button
               >
             </div>
