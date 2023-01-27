@@ -17,7 +17,6 @@
         userStore.set({
           users,
         });
-        console.log($userStore.users);
       })
       .catch((error) => {
         console.log(error);

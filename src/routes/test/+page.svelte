@@ -1,14 +1,13 @@
 <script lang="js">
   import { browser } from "$app/environment";
   import userStore from "/src/lib/stores/users.js";
+  import authStore from "/src/lib/stores/auth.js";
   import { onMount } from "svelte";
 
   $: if (browser) document.title = "Test";
 
-  let users = [];
-
   onMount(async () => {
-    users = $userStore.data;
+    console.log($authStore.user);
     console.log($userStore.users);
   });
 </script>
