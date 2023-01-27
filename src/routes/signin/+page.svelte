@@ -1,6 +1,5 @@
 <script lang="js">
   import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-  import zApp from "../../App.svelte";
 
   const loginWithGoogle = async () => {
     try {

@@ -13,7 +13,7 @@
     measurementId: "G-CKQSRS45DM",
   };
 
-  export const zApp = initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
 
   onMount(async (user) => {});
 </script>
