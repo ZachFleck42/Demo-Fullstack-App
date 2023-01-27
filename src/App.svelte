@@ -1,5 +1,6 @@
-<script>
+<script lang="js">
   import "./app.css";
+  import { onMount } from "svelte";
   import { initializeApp } from "firebase/app";
 
   const firebaseConfig = {
@@ -12,9 +13,11 @@
     measurementId: "G-CKQSRS45DM",
   };
 
-  const app = initializeApp(firebaseConfig);
+  export const zApp = initializeApp(firebaseConfig);
+
+  onMount(async (user) => {});
 </script>
 
-<div class="bg-red-800">
+<div class="bg-gray-700 h-screen">
   <slot />
 </div>
