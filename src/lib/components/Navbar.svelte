@@ -4,6 +4,7 @@
   import { scale } from "svelte/transition";
   import { onMount } from "svelte";
   import { getAuth, signOut } from "firebase/auth";
+  import Iris_logo_short from "/src/assets/Iris_logo_short.png";
 
   let show = false;
   let menu = null;
@@ -68,7 +69,7 @@
       <div class="flex-shrink-0">
         <a href="/app" class="flex">
           <img
-            src="/src/assets/Iris_logo_short.png"
+            src={Iris_logo_short}
             alt="Home"
             class="my-auto h-12 w-auto text-primary-600"
           />

@@ -8,7 +8,6 @@ export const load = async () => {
       .then((response) => response.json())
       .then(({ data }) => {
         let users = data;
-        console.log(data);
         userStore.set({
           users,
         });

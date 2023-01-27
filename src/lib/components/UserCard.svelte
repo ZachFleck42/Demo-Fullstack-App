@@ -1,6 +1,4 @@
 <script lang="js">
-  import { onMount } from "svelte";
-
   export let user = {};
 
   let first_name = user.first_name ?? "John";
@@ -46,7 +44,7 @@
       <a
         href="/app/user/{id}"
         class="inline-flex items-center px-4 py-2 text-sm h-10 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-        >View User</a
+        >View Profile</a
       >
       <a
         href="mailto:{email}"

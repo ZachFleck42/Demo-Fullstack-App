@@ -4,6 +4,7 @@
   import { goto } from "$app/navigation";
   import authStore from "$lib/stores/auth.js";
   import Google_logo from "/src/assets/Google_logo.png";
+  import Iris_Logo from "/src/assets/Iris_logo.png";
 
   $: if (browser) document.title = "Sign in";
 
@@ -56,7 +57,7 @@
 
 <div class="flex flex-col h-full w-full justify-center bg-white border-">
   <div class="mx-auto h-24 my-8">
-    <img src="/src/assets/Iris_logo.png" alt="Iris Automation logo" />
+    <img src={Iris_Logo} alt="Iris Automation logo" />
   </div>
 
   <div class="w-full max-w-sm mx-auto">

@@ -1,7 +1,5 @@
 <script lang="js">
   import { browser } from "$app/environment";
-  import userStore from "/src/lib/stores/users.js";
-  import { onMount } from "svelte";
   $: if (browser) document.title = "Home";
 </script>
 
