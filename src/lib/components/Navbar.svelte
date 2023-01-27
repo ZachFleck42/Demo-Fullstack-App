@@ -82,8 +82,23 @@
 
         <!-- Profile Navigation -->
         <div class="relative" bind:this={menu}>
-          <button on:click={() => (show = !show)}>
+          <button
+            class
+            hover:border-gray-300
+            hover:border-2
+            on:click={() => (show = !show)}
+          >
             {#if $authStore.user.photoURL}
+              <div class="flex h-12 w-12 rounded-full border-solid">
+                <div class="m-auto rounded-full">
+                  <img
+                    src={$authStore.user.photoURL}
+                    alt={$authStore.user.displayName}
+                    class="rounded-full"
+                  />
+                </div>
+              </div>
+            {:else if $authStore.user.email}
               <div
                 class="flex h-12 w-12 rounded-full border-solid bg-blue-500 text-white hover:border-gray-300 hover:border-2"
               >
@@ -97,17 +112,15 @@
             <div
               in:scale={{ duration: 100, start: 0.95 }}
               out:scale={{ duration: 75, start: 0.95 }}
-              class="origin-top-right absolute right-0 w-48 py-2 mt-1 bg-gray-800
-          rounded shadow-md"
+              class="origin-top-right overflow-hidden absolute right-0 w-36 bg-slate-400
+          rounded-md shadow-md"
             >
-              <a
-                href="/profile"
-                class="block px-4 py-2 hover:bg-green-500 hover:text-green-100"
+              <a href="/profile" class="block px-4 py-2 hover:bg-slate-300 "
                 >Profile</a
               >
               <button
                 on:click={logOut}
-                class="block px-4 py-2 hover:bg-green-500 hover:text-green-100"
+                class="block w-full text-left px-4 py-2 hover:bg-slate-300 "
                 >Logout</button
               >
             </div>

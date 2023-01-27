@@ -7,7 +7,7 @@
   $: if (browser) document.title = "Test";
 
   onMount(async () => {
-    console.log($authStore.user);
+    console.log($authStore.user.photoURL);
     console.log($userStore.users);
   });
 </script>
