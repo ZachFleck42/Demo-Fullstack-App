@@ -7,4 +7,5 @@
   {#if $authStore.isLoggedIn}
     <p>Your email is {$authStore.user.email}</p>
   {/if}
+  <a href="/test">Go to test</a>
 </div>

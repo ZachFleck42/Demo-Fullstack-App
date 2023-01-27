@@ -49,7 +49,7 @@
 
 <div class="flex flex-col h-full w-full justify-center bg-white">
   <div class="mx-auto h-24 my-8">
-    <img src="src/assets/Iris_logo.png" alt="Iris Automation logo" />
+    <img src="/src/assets/Iris_logo.png" alt="Iris Automation logo" />
   </div>
 
   <div class="w-full max-w-sm mx-auto">
@@ -116,7 +116,7 @@
           on:click={loginWithGoogle}
         >
           <img
-            src="src/assets/Google_logo.png"
+            src="/src/assets/Google_logo.png"
             alt="Google logo"
             width="24px"
             class="mx-auto"
