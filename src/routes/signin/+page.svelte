@@ -1,15 +1,38 @@
 <script lang="js">
+  import { browser } from "$app/environment";
   import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-  const loginWithGoogle = async () => {
-    try {
-      const auth = getAuth();
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      console.log(result.user);
-    } catch (e) {
-      console.log(e);
+  $: if (browser) document.title = "Sign in";
+
+  let email = "";
+  let password = "";
+
+  const validateEmail = (email) => {
+    const regex =
+      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    const matches = email.match(regex) ?? [];
+    return matches?.length > 0;
+  };
+
+  const loginWithEmail = async () => {
+    if (!password) {
+      console.log("Missing password");
+      return;
     }
+
+    if (!validateEmail(email)) {
+      console.log("Invalid email");
+      return;
+    }
+  };
+
+  const loginWithGoogle = async () => {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+
+    const result = await signInWithPopup(auth, provider);
+    console.log(result.user);
   };
 </script>
 
@@ -25,6 +48,7 @@
           Email
         </label>
         <input
+          bind:value={email}
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-blue-300 focus:shadow-none"
           id="username"
           type="text"
@@ -40,6 +64,7 @@
           Password
         </label>
         <input
+          bind:value={password}
           class="shadow appearance-none border w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-blue-300 focus:shadow-none"
           id="password"
           type="password"
@@ -48,8 +73,10 @@
       </div>
       <div class="flex items-center">
         <button
-          class="mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded focus:outline-none focus:shadow-outline w-full transition duration-150 ease-in-out"
+          class="mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded focus:outline-none focus:shadow-outline w-full transition duration-150 ease-in-out disabled:bg-slate-400"
           type="button"
+          disabled={!validateEmail(email)}
+          on:click={loginWithEmail}
         >
           Sign In
         </button>
@@ -60,7 +87,7 @@
             <div class="w-full border-t border-gray-500 mb-3" />
           </div>
           <div class="relative flex justify-center">
-            <span class="select-none bg-white px-3 mb-4">
+            <span class="select-none bg-white px-3 mb-4 font-light">
               Or continue with
             </span>
           </div>
