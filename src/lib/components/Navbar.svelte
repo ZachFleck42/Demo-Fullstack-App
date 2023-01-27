@@ -8,7 +8,28 @@
   let show = false;
   let menu = null;
 
-  let pages = [];
+  let pages = [
+    {
+      href: "/app",
+      name: "Home",
+    },
+    {
+      href: "/app/viewUsers/grid",
+      name: "Grid",
+    },
+    {
+      href: "/app/viewUsers/list",
+      name: "List",
+    },
+    {
+      href: "/app/viewUsers/table",
+      name: "Table",
+    },
+    {
+      href: "/app/about",
+      name: "About",
+    },
+  ];
 
   onMount(() => {
     const handleOutsideClick = (event) => {
@@ -48,7 +69,7 @@
   };
 </script>
 
-<div class="mx-auto max-w-8xl px-4 md:px-8 lg:px-12 border-b-2 bg-white">
+<div class="mx-auto max-w-8xl px-20 border-b-2 bg-white">
   <div class="flex h-20 w-full items-center justify-between">
     <div class="flex w-full items-center justify-between">
       <div class="flex-shrink-0">
@@ -62,9 +83,9 @@
       </div>
 
       <div>
-        <div class="flex space-x-3 lg:space-x-6">
+        <div class="flex space-x-16 text-xl font-light">
           {#each pages as page}
-            <p>Page</p>
+            <a href={page.href}>{page.name}</a>
           {/each}
         </div>
       </div>

@@ -17,7 +17,9 @@
   <svelte:fragment>
     {#if userLoggedIn}
       <Navbar />
-      <slot />
+      <div class="px-20">
+        <slot />
+      </div>
       <Footer />
     {/if}
   </svelte:fragment>

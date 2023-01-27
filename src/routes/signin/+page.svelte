@@ -95,7 +95,7 @@
       </div>
       <div class="flex items-center">
         <button
-          class="mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded focus:outline-none focus:shadow-outline w-full transition duration-150 ease-in-out disabled:bg-slate-400"
+          class="mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded focus:outline-none focus:shadow-outline w-full transition duration-150 ease-in-out disabled:bg-gray-400"
           type="button"
           disabled={!validateEmail(email)}
           on:click={loginWithEmail}
@@ -117,7 +117,7 @@
       </div>
       <div class="flex items-center">
         <button
-          class="mx-auto py-2 px-4 w-full border-solid border-2 rounded mt-2 hover:border-blue-300 hover:bg-slate-50 active:bg-slate-100 transition duration-100 ease-in-out"
+          class="mx-auto py-2 px-4 w-full border-solid border-2 rounded mt-2 hover:border-blue-300 hover:bg-gray-100 active:bg-gray-200 transition duration-100 ease-in-out"
           type="button"
           on:click={loginWithGoogle}
         >
