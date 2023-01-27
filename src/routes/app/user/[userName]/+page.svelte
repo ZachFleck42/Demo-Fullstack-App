@@ -8,11 +8,9 @@
   let email;
   let avatar;
 
-  onMount(() => {
+  onMount(async () => {
     let full_name = $page.params.userName.split(/(?=[A-Z])/);
     first_name = full_name[0];
     last_name = full_name[1];
   });
 </script>
-
-{$first_name}

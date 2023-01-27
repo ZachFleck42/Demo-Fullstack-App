@@ -116,18 +116,18 @@
             <div
               in:scale={{ duration: 100, start: 0.95 }}
               out:scale={{ duration: 75, start: 0.95 }}
-              class="origin-top-right overflow-hidden absolute right-0 w-36 bg-gray-300
+              class="origin-top-right overflow-hidden absolute right-0 w-36 bg-gray-100
           rounded-md shadow-md"
             >
               <a
                 on:click={() => (show = !show)}
                 href="/app/profile"
-                class="block px-4 py-2 hover:bg-gray-200 active:bg-gray-400 transition duration-150 ease-in-out"
+                class="block px-4 py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-150 ease-in-out"
                 >Profile</a
               >
               <button
                 on:click={logOut}
-                class="block w-full text-left px-4 py-2 hover:bg-gray-200 active:bg-gray-400 transition duration-150 ease-in-out"
+                class="block w-full text-left px-4 py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-150 ease-in-out"
                 >Sign Out</button
               >
             </div>
@@ -137,9 +137,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  .selected {
-    background-color: red;
-  }
-</style>
