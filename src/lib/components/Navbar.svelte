@@ -52,7 +52,7 @@
   <div class="flex h-20 w-full items-center justify-between">
     <div class="flex w-full items-center justify-between">
       <div class="flex-shrink-0">
-        <a href="/home" class="flex">
+        <a href="/app" class="flex">
           <img
             src="/src/assets/Iris_logo_short.png"
             alt="Home"

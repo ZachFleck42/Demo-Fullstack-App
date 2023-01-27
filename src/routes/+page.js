@@ -6,6 +6,6 @@ import authStore from '/src/lib/stores/auth.js'
 export const load = async () => {
     const thing = get(authStore);
     
-    if (thing.user && thing.isLoggedIn) await goto("/home")
+    if (thing.user && thing.isLoggedIn) await goto("/app")
     else await goto("/signin");
 };

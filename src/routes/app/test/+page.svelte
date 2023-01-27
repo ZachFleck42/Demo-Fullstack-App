@@ -13,4 +13,4 @@
 </script>
 
 <p class="text-green-500">Hello world</p>
-<a href="/home">Go to home</a>
+<a href="/app">Go to home</a>

@@ -43,11 +43,11 @@
       user,
     });
 
-    await goto("/home");
+    await goto("/app");
   };
 
   const redirect = async () => {
-    await goto("/home");
+    await goto("/app");
   };
 
   $: if ($authStore.user) redirect();

@@ -23,7 +23,7 @@
 </script>
 
 <div>
-  <a href="/home/test">Test</a>
+  <a href="/app/test">Test</a>
   <div class="flex flex-col m-5">
     {#each $userStore.users as user}
       <div class="mb-2">
