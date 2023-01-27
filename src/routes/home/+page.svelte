@@ -10,6 +10,7 @@
       .then((response) => response.json())
       .then(({ data }) => {
         users = data;
+        console.log(users);
       })
       .catch((error) => {
         console.log(error);
