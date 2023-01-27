@@ -4,6 +4,7 @@
   import { goto } from "$app/navigation";
   import { initializeApp } from "firebase/app";
   import { onMount } from "svelte";
+  import { getAuth, onAuthStateChanged } from "firebase/auth";
 
   let offline = false;
   let theme = "";
@@ -21,12 +22,15 @@
     };
 
     initializeApp(firebaseConfig);
-  });
 
-  authStore.subscribe(async ({ isLoggedIn }) => {
-    if (!isLoggedIn) {
-      await goto("/signin");
-    }
+    const auth = getAuth();
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        await goto("/home");
+      } else {
+        await goto("/signin");
+      }
+    });
   });
 </script>
 
