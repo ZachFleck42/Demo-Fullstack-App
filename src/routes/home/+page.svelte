@@ -23,18 +23,12 @@
         return;
       });
   });
-
-  const logOut = () => {
-    const auth = getAuth();
-    signOut(auth);
-  };
 </script>
 
 <Navbar />
 <div>
   <p>Hello {$authStore.user.email}</p>
   <a href="/test">Go to test</a>
-  <p on:click={logOut}>Log out</p>
 
   <div class="flex flex-col m-5">
     {#each $userStore.users as user}
