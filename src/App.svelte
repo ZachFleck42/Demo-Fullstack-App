@@ -1,10 +1,10 @@
 <script lang="js">
   import "./app.css";
-  import authStore from "/src/lib/stores/auth.js";
   import { goto } from "$app/navigation";
   import { initializeApp } from "firebase/app";
   import { onMount } from "svelte";
   import { getAuth, onAuthStateChanged } from "firebase/auth";
+  import authStore from "/src/lib/stores/auth.js";
 
   let offline = false;
   let theme = "";
@@ -26,7 +26,7 @@
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        await goto("/home");
+        authStore.set({ user });
       } else {
         await goto("/signin");
       }
