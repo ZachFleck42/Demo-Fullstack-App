@@ -2,7 +2,8 @@
   import { browser } from "$app/environment";
   import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
   import { goto } from "$app/navigation";
-  import authStore from "/src/lib/stores/auth.js";
+  import authStore from "$lib/stores/auth.js";
+  import Google_logo from "/src/assets/Google_logo.png";
 
   $: if (browser) document.title = "Sign in";
 
@@ -124,7 +125,7 @@
           on:click={loginWithGoogle}
         >
           <img
-            src="/src/assets/Google_logo.png"
+            src={Google_logo}
             alt="Google logo"
             width="24px"
             class="mx-auto"
@@ -132,7 +133,7 @@
         </button>
       </div>
     </form>
-    <div class="flex">
+    <div class="flex justify-center">
       <p class="pr-2 mx=-">New user?</p>
       <p class="text-blue-400">Register here</p>
     </div>

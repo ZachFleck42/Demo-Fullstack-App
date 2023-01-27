@@ -10,7 +10,7 @@
   let id = user.id ?? 0;
 </script>
 
-<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow m-auto">
   <div class="flex justify-end px-4 pt-4">
     <button
       id="dropdownButton"

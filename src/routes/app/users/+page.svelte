@@ -4,6 +4,7 @@
   import UserCard from "/src/lib/components/UserCard.svelte";
 
   $: if (browser) document.title = "Users";
+  $: console.log($userStore);
 </script>
 
 <div class="mt-8">
