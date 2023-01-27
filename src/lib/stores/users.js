@@ -1,9 +1,8 @@
 import { writable } from 'svelte/store';
 
 const userStore = writable({
-    data: [],
-}
-);
+    users: []
+});
 
 export default {
     subscribe: userStore.subscribe,
