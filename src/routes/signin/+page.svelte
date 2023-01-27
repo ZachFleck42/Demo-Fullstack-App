@@ -32,19 +32,18 @@
   };
 
   const loginWithGoogle = async () => {
-    try {
-      const auth = getAuth();
-      const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
 
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
 
-      authStore.set(user);
-      authStore.set((isLoggedIn = true));
-      await goto("/home");
-    } catch (e) {
-      console.log(e);
-    }
+    authStore.set({
+      isLoggedIn: true,
+      user,
+    });
+
+    await goto("/home");
   };
 </script>
 
