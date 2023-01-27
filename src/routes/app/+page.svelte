@@ -1,9 +1,7 @@
 <script lang="js">
   import { browser } from "$app/environment";
   import userStore from "/src/lib/stores/users.js";
-  import authStore from "/src/lib/stores/auth.js";
   import { onMount } from "svelte";
-  import HorizontalUserCard from "/src/lib/components/HorizontalUserCard.svelte";
   $: if (browser) document.title = "Home";
 
   onMount(async () => {
@@ -22,13 +20,26 @@
   });
 </script>
 
-<div>
-  <a href="/app/test">Test</a>
-  <div class="flex flex-col m-5">
-    {#each $userStore.users as user}
-      <div class="mb-2">
-        <HorizontalUserCard {user} />
-      </div>
-    {/each}
-  </div>
+<div class="grid place-items-center h-screen">
+  <svg
+    fill="#000000"
+    height="800px"
+    width="800px"
+    version="1.1"
+    id="Layer_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 512 512"
+    xml:space="preserve"
+    class="w-48 h-48 fill-gray-700 mb-48"
+  >
+    <g>
+      <g>
+        <path
+          d="M256,2.938l-256,256v48.427h62.061v201.697h155.152V384.941h77.576v124.121h155.151V307.365H512v-48.427L256,2.938z
+      M403.394,260.82v201.697h-62.061V338.396H170.667v124.121h-62.061V260.82H63.943L256,68.762L448.057,260.82H403.394z"
+        />
+      </g>
+    </g>
+  </svg>
 </div>

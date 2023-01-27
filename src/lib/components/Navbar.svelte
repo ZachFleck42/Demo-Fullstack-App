@@ -7,6 +7,7 @@
 
   let show = false;
   let menu = null;
+  let current = "Home";
 
   let pages = [
     {
@@ -14,16 +15,8 @@
       name: "Home",
     },
     {
-      href: "/app/viewUsers/grid",
-      name: "Grid",
-    },
-    {
-      href: "/app/viewUsers/list",
-      name: "List",
-    },
-    {
-      href: "/app/viewUsers/table",
-      name: "Table",
+      href: "/app/viewUsers",
+      name: "Users",
     },
     {
       href: "/app/about",
@@ -82,10 +75,10 @@
         </a>
       </div>
 
-      <div>
+      <div class="mr-20">
         <div class="flex space-x-16 text-xl font-light">
           {#each pages as page}
-            <a href={page.href}>{page.name}</a>
+            <a href={page.href} class="hover:text-gray-400">{page.name}</a>
           {/each}
         </div>
       </div>
@@ -144,3 +137,9 @@
     </div>
   </div>
 </div>
+
+<style>
+  .selected {
+    background-color: red;
+  }
+</style>
