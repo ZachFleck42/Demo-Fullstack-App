@@ -5,6 +5,7 @@
   import authStore from "$lib/stores/auth.js";
   import Google_logo from "/src/assets/Google_logo.png";
   import Iris_Logo from "/src/assets/Iris_logo.png";
+  import { get } from "svelte/store";
 
   $: if (browser) document.title = "Sign in";
 
@@ -45,6 +46,11 @@
       user,
     });
 
+    await goto("/app");
+  };
+
+  $: if (get(authStore)?.user) redirect();
+  const redirect = async () => {
     await goto("/app");
   };
 </script>

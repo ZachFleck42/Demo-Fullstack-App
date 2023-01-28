@@ -28,7 +28,6 @@
 
   onMount(() => {
     user = get(authStore).user;
-    console.log(user);
 
     const handleOutsideClick = (event) => {
       if (show && !menu.contains(event.target)) {
