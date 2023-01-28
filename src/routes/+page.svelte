@@ -1,11 +1,16 @@
 <script lang="js">
   import { goto } from "$app/navigation";
-  import { onMount } from "svelte";
-  import authStore from "/src/lib/stores/auth.js";
 
-  onMount(async () => {
-    if (!$authStore.isLoggedIn) {
-      await goto("/signin");
-    }
-  });
+  export let data;
+  let userLoggedIn = data.loggedIn;
+
+  $: if (!userLoggedIn) {
+    redirect("/signin");
+  } else {
+    redirect("/app");
+  }
+
+  const redirect = async (route) => {
+    await goto(route);
+  };
 </script>
