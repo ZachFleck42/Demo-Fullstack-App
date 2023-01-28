@@ -7,9 +7,8 @@ export const load = async () => {
     fetch("https://reqres.in/api/users/")
       .then((response) => response.json())
       .then(({ data }) => {
-        let users = data;
         userStore.set({
-          users,
+          users: data,
         });
       })
       .catch((error) => {

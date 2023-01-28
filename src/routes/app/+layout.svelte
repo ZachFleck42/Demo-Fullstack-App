@@ -9,6 +9,8 @@
   authStore.subscribe(async ({ user }) => {
     if (user) {
       userLoggedIn = true;
+    } else {
+      console.log("How did we get here?");
     }
   });
 </script>
