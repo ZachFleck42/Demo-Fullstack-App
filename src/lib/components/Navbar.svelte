@@ -53,7 +53,6 @@
       .then(async () => {
         authStore.set({
           isLoggedIn: false,
-          user: {},
         });
         await goto("/signin");
       })
