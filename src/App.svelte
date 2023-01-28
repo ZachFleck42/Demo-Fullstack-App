@@ -5,13 +5,13 @@
 
   onMount(() => {
     const firebaseConfig = {
-      apiKey: "AIzaSyD3uTEt6BUD1j_TNWG6JDU6avSg6QULbGg",
-      authDomain: "zfleck-iris-app.firebaseapp.com",
-      projectId: "zfleck-iris-app",
-      storageBucket: "zfleck-iris-app.appspot.com",
-      messagingSenderId: "817800640640",
-      appId: "1:817800640640:web:22e1a390f6dd266f188e65",
-      measurementId: "G-CKQSRS45DM",
+      apiKey: import.meta.env.VITE_APP_API_KEY,
+      authDomain: import.meta.env.VITE_APP_AUTH_DOMAIN,
+      projectId: import.meta.env.VITE_APP_PROJECT_ID,
+      storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET,
+      messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID,
+      appId: import.meta.env.VITE_APP_ID,
+      measurementId: import.meta.env.VITE_APP_MEASUREMENT_ID,
     };
 
     const app = initializeApp(firebaseConfig);
