@@ -34,8 +34,9 @@
           class="block mb-2 text-sm font-medium text-gray-900">Subject</label
         >
         <input
+          autocomplete="off"
           type="text"
-          id="zsubject"
+          id="subject"
           class="shadow-inner border-gray-300 rounded-md appearance-none border w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-blue-300"
           placeholder=""
           required
