@@ -4,7 +4,7 @@ import authStore from "$lib/stores/auth.js";
 export const ssr = false;
 export const prerender = false;
 
-export async function load( {params} ) {
+export async function load() {
     let user = get(authStore)?.user;
     if (user) {
         return {
