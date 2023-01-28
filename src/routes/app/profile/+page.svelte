@@ -1,8 +1,11 @@
 <script lang="js">
   import { browser } from "$app/environment";
-  import authStore from "/src/lib/stores/auth.js";
 
   $: if (browser) document.title = "Profile";
 </script>
 
-<p>Profile</p>
+<div class="flex justify-center mt-96">
+  <div class="m-auto text-center">
+    <p>Profile</p>
+  </div>
+</div>

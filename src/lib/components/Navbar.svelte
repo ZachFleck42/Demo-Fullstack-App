@@ -17,6 +17,10 @@
       name: "Home",
     },
     {
+      href: "/app/upload",
+      name: "Upload",
+    },
+    {
       href: "/app/users",
       name: "Users",
     },

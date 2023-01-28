@@ -70,7 +70,7 @@
         </label>
         <input
           bind:value={email}
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-blue-300 focus:shadow-none"
+          class="shadow-inner appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-blue-300"
           id="username"
           type="text"
           autocomplete="email"
@@ -79,14 +79,14 @@
       </div>
       <div class="mb-6">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2"
+          class="block text-gray-700 text-sm font-bold mb-2 mt-6"
           for="password"
         >
           Password
         </label>
         <input
           bind:value={password}
-          class="shadow appearance-none border w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-blue-300 focus:shadow-none"
+          class="shadow-inner appearance-none border w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-blue-300"
           id="password"
           type="password"
           placeholder="********"
@@ -121,7 +121,7 @@
       </div>
       <div class="flex items-center">
         <button
-          class="mx-auto py-2 px-4 w-full border-solid border-2 rounded mt-2 hover:border-blue-300 hover:bg-gray-100 active:bg-gray-200 transition duration-100 ease-in-out"
+          class="mx-auto py-2 px-4 w-full border-solid border-2 rounded mt-2 hover:border-blue-300 hover:bg-gray-50 active:bg-gray-200 transition duration-150 ease-in-out"
           type="button"
           on:click={loginWithGoogle}
         >
@@ -135,7 +135,7 @@
       </div>
     </form>
     <div class="flex justify-center">
-      <p class="pr-2 mx=-">New user?</p>
+      <p class="pr-2">New user?</p>
       <p class="text-blue-400">Register here</p>
     </div>
   </div>
