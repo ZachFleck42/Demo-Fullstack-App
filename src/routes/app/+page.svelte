@@ -1,5 +1,6 @@
 <script lang="js">
   import { browser } from "$app/environment";
+
   $: if (browser) document.title = "Home";
 </script>
 
@@ -14,7 +15,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 512 512"
     xml:space="preserve"
-    class="w-48 h-48 fill-gray-700 my-72"
+    class="w-48 h-48 fill-gray-400 my-72"
   >
     <g>
       <g>

@@ -4,7 +4,7 @@
   $: if (browser) document.title = "Support";
 </script>
 
-<div class="flex">
+<div class="flex justify-center mt-96">
   <div class="m-auto text-center">
     <p>Contact support at:</p>
     <p>513-850-3668</p>

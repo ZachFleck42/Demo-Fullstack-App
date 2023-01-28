@@ -4,13 +4,14 @@
   import UserCard from "/src/lib/components/UserCard.svelte";
 
   $: if (browser) document.title = "Users";
-  $: console.log($userStore);
 </script>
 
-<div class="mt-8">
-  <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
+<div class="mt-16">
+  <div
+    class="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 mx-8"
+  >
     {#each $userStore.users as user}
-      <div class="mb-2">
+      <div class="mb-8">
         <UserCard {user} />
       </div>
     {/each}
