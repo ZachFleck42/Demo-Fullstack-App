@@ -8,7 +8,7 @@
 
 <div class="mt-16">
   <div
-    class="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 mx-8"
+    class="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 mx-36"
   >
     {#each $userStore.users as user}
       <div class="mb-8">

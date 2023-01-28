@@ -8,8 +8,8 @@
   let id = user.id ?? 0;
 </script>
 
-<div class=" bg-white border border-gray-200 rounded-lg shadow my-auto mx-4">
-  <div class="flex justify-end pt-4 pr-6">
+<div class=" bg-white border border-gray-200 rounded-lg shadow my-auto mx-8">
+  <div class="flex justify-end pt-4 pr-4">
     <button
       id="dropdownButton"
       class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
