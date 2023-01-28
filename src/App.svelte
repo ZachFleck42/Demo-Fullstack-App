@@ -2,7 +2,6 @@
   import "./app.css";
   import { initializeApp } from "firebase/app";
   import { onMount } from "svelte";
-  import authStore from "/src/lib/stores/auth.js";
 
   onMount(() => {
     const firebaseConfig = {

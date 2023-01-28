@@ -1,16 +1,3 @@
-// import { writable } from 'svelte/store';
-
-// const authStore = writable({
-//     isLoggedIn: false,
-//     user: {},
-// });
-
-// export default {
-//     subscribe: authStore.subscribe,
-//     set: authStore.set,
-// }
-
-
 import {browser} from '$app/environment';
 import {writable} from 'svelte/store';
 
@@ -30,6 +17,7 @@ const createStore = () => {
 };
 
 const authStore = createStore();
+
 authStore.subscribe(async (user) => {
 	if (!browser) return;
 	if (user) localStorage.setItem('user', JSON.stringify(user));

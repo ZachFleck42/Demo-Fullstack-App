@@ -5,10 +5,11 @@
   import { onMount } from "svelte";
   import { getAuth, signOut } from "firebase/auth";
   import Iris_logo_short from "/src/assets/Iris_logo_short.png";
+  import { get } from "svelte/store";
 
   let show = false;
   let menu = null;
-  let current = "Home";
+  let user;
 
   let pages = [
     {
@@ -26,6 +27,9 @@
   ];
 
   onMount(() => {
+    user = get(authStore).user;
+    console.log(user);
+
     const handleOutsideClick = (event) => {
       if (show && !menu.contains(event.target)) {
         show = false;
@@ -47,18 +51,11 @@
     };
   });
 
-  const logOut = () => {
+  const logOut = async () => {
     const auth = getAuth();
-    signOut(auth)
-      .then(async () => {
-        authStore.set({
-          isLoggedIn: false,
-        });
-        await goto("/signin");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    await signOut(auth);
+    await authStore.reset();
+    await goto("/signin");
   };
 </script>
 
@@ -92,22 +89,22 @@
             hover:border-2
             on:click={() => (show = !show)}
           >
-            {#if $authStore.user.photoURL}
+            {#if user?.photoURL}
               <div class="flex h-12 w-12 rounded-full border-solid">
                 <div class="m-auto rounded-full">
                   <img
-                    src={$authStore.user.photoURL}
-                    alt={$authStore.user.displayName}
+                    src={user?.photoURL}
+                    alt={user?.displayName}
                     class="rounded-full"
                   />
                 </div>
               </div>
-            {:else if $authStore.user.email}
+            {:else if user?.email}
               <div
                 class="flex h-12 w-12 rounded-full border-solid bg-blue-500 text-white hover:border-gray-300 hover:border-2"
               >
                 <div class="m-auto">
-                  {$authStore.user.email[0].toUpperCase()}
+                  {user?.email[0].toUpperCase()}
                 </div>
               </div>
             {/if}
