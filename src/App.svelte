@@ -2,14 +2,7 @@
   import "./app.css";
   import { initializeApp } from "firebase/app";
   import { onMount } from "svelte";
-  import { getAuth } from "firebase/auth";
-
-  let offline = false;
-  window.addEventListener("offline", () => (offline = true));
-  window.addEventListener("online", () => (offline = false));
-
-  let theme = "";
-  // $: theme = $settingsStore?.theme === Theme.dark ? "dark" : "";
+  import authStore from "/src/lib/stores/auth.js";
 
   onMount(() => {
     const firebaseConfig = {
@@ -23,8 +16,6 @@
     };
 
     const app = initializeApp(firebaseConfig);
-
-    const auth = getAuth();
   });
 </script>
 

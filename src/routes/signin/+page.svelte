@@ -47,12 +47,6 @@
 
     await goto("/app");
   };
-
-  const redirect = async () => {
-    await goto("/app");
-  };
-
-  $: if ($authStore.user) redirect();
 </script>
 
 <div class="flex flex-col h-full w-full justify-center bg-white border-">
