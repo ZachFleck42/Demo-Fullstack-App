@@ -8,12 +8,11 @@
 </script>
 
 <div class="w-auto">
-  <a
-    href="/app/user/{first_name}{last_name}"
-    class="flex items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 active:bg-gray-300 transition duration-200 ease-in-out"
+  <div
+    class="flex items-center bg-white border border-gray-200 rounded-lg shadow "
   >
     <img
-      class="w-24 h-24 m-3 ml-5 rounded-full shadow-lg"
+      class="w-32 h-32 m-5 rounded-full shadow-lg"
       src={avatar}
       alt="{first_name} {last_name}'s Avatar"
     />
@@ -27,5 +26,5 @@
       </p>
     </div>
     <div class="flex flex-row pl-6 space-x-6" />
-  </a>
+  </div>
 </div>

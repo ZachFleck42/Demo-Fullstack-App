@@ -35,18 +35,20 @@
   };
 
   const loginWithGoogle = async () => {
-    const auth = getAuth();
-    const provider = new GoogleAuthProvider();
-
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
-
-    authStore.set({
-      isLoggedIn: true,
-      user,
-    });
-
-    await goto("/app");
+    try {
+      const auth = getAuth();
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      authStore.set({
+        isLoggedIn: true,
+        user,
+      });
+      await goto("/app");
+    } catch (e) {
+      console.log(e);
+      return;
+    }
   };
 
   $: if (get(authStore)?.user) redirect();
