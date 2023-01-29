@@ -8,7 +8,7 @@
   let id = user.id ?? 0;
 </script>
 
-<div class=" bg-white border border-gray-200 rounded-lg shadow my-auto mx-8">
+<div class="bg-white border border-gray-200 rounded-lg shadow my-auto mx-8">
   <div class="flex justify-end pt-4 pr-4">
     <button
       id="dropdownButton"
