@@ -182,7 +182,9 @@
         <button
           class="mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded w-full transition duration-150 ease-in-out disabled:bg-gray-400"
           type="button"
-          disabled={!validateEmail(email) || password.length < 6}
+          disabled={!validateEmail(email) ||
+            password.length < 6 ||
+            (registering && confirmPassword.length < 6)}
           on:click={registering ? registerUser : loginWithEmail}
         >
           {#if !registering}
