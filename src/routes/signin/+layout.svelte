@@ -6,9 +6,10 @@
   export let data;
   let userLoggedIn = data.loggedIn;
 
-  $: if (userLoggedIn) redirect();
-  const redirect = async () => {
-    await goto("/app");
+  $: if (userLoggedIn) redirect("/app");
+
+  const redirect = async (route) => {
+    await goto(route);
   };
 </script>
 

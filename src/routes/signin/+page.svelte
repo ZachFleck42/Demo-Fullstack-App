@@ -1,13 +1,19 @@
 <script lang="js">
   import { browser } from "$app/environment";
-  import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+  import {
+    getAuth,
+    signInWithPopup,
+    GoogleAuthProvider,
+    signInWithEmailAndPassword,
+  } from "firebase/auth";
   import { goto } from "$app/navigation";
+  import { get } from "svelte/store";
   import authStore from "$lib/stores/auth.js";
   import Google_logo from "/src/assets/Google_logo.png";
   import Iris_Logo from "/src/assets/Iris_logo.png";
-  import { get } from "svelte/store";
 
   $: if (browser) document.title = "Sign in";
+  $: if (get(authStore)?.user) redirect("/app");
 
   let email = "";
   let password = "";
@@ -31,7 +37,17 @@
       return;
     }
 
-    console.log("Success");
+    try {
+      const auth = getAuth();
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      authStore.set({
+        isLoggedIn: true,
+        user: result.user,
+      });
+    } catch (e) {
+      console.log(e);
+      return;
+    }
   };
 
   const loginWithGoogle = async () => {
@@ -39,10 +55,9 @@
       const auth = getAuth();
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      const user = result.user;
       authStore.set({
         isLoggedIn: true,
-        user,
+        user: result.user,
       });
       await goto("/app");
     } catch (e) {
@@ -51,9 +66,8 @@
     }
   };
 
-  $: if (get(authStore)?.user) redirect();
-  const redirect = async () => {
-    await goto("/app");
+  const redirect = async (route) => {
+    await goto(route);
   };
 </script>
 
@@ -101,7 +115,7 @@
       </div>
       <div class="flex items-center">
         <button
-          class="mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded focus:outline-none focus:shadow-outline w-full transition duration-150 ease-in-out disabled:bg-gray-400"
+          class="mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded w-full transition duration-150 ease-in-out disabled:bg-gray-400"
           type="button"
           disabled={!validateEmail(email)}
           on:click={loginWithEmail}
