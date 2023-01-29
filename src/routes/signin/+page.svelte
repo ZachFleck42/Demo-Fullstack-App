@@ -5,6 +5,7 @@
     signInWithPopup,
     GoogleAuthProvider,
     signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
   } from "firebase/auth";
   import { goto } from "$app/navigation";
   import { get } from "svelte/store";
@@ -12,11 +13,17 @@
   import Google_logo from "/src/assets/Google_logo.png";
   import Iris_Logo from "/src/assets/Iris_logo.png";
 
-  $: if (browser) document.title = "Sign in";
+  $: if (browser && !registering) {
+    document.title = "Sign in";
+  } else if (browser && registering) {
+    document.title = "Register";
+  }
   $: if (get(authStore)?.user) redirect("/app");
 
   let email = "";
   let password = "";
+  let confirmPassword = "";
+  let registering = false;
 
   const validateEmail = (email) => {
     const regex =
@@ -24,6 +31,45 @@
 
     const matches = email.match(regex) ?? [];
     return matches?.length > 0;
+  };
+
+  const registerUser = async () => {
+    if (!password) {
+      console.log("ERROR: Missing password");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      console.log("ERROR: Invalid email");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      console.log("ERROR: Passwords do not match");
+      return;
+    }
+
+    if (password.length < 6) {
+      console.log("ERROR: Password must be at least 6 characters");
+      return;
+    }
+
+    try {
+      const auth = getAuth();
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      authStore.set({
+        isLoggedIn: true,
+        user: result.user,
+      });
+      await goto("/app");
+    } catch (e) {
+      console.log(e);
+      return;
+    }
   };
 
   const loginWithEmail = async () => {
@@ -44,6 +90,7 @@
         isLoggedIn: true,
         user: result.user,
       });
+      await goto("/app");
     } catch (e) {
       console.log(e);
       return;
@@ -93,7 +140,7 @@
           placeholder="you@example.com"
         />
       </div>
-      <div class="mb-6">
+      <div class="mb-4">
         <label
           class="block text-gray-700 text-sm font-bold mb-2 mt-6"
           for="password"
@@ -107,20 +154,42 @@
           type="password"
           placeholder="********"
           on:keydown={({ key }) => {
-            key === "Enter" && validateEmail(email)
-              ? loginWithEmail(email)
-              : undefined;
+            key === "Enter" && !registering ? loginWithEmail(email) : undefined;
           }}
         />
       </div>
+      {#if registering}
+        <div class="mb-4">
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="password"
+          >
+            Confirm Password
+          </label>
+          <input
+            bind:value={confirmPassword}
+            class="shadow-inner appearance-none border w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-blue-300"
+            id="confirmPassword"
+            type="password"
+            placeholder="********"
+            on:keydown={({ key }) => {
+              key === "Enter" && registering ? registerUser() : undefined;
+            }}
+          />
+        </div>
+      {/if}
       <div class="flex items-center">
         <button
           class="mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded w-full transition duration-150 ease-in-out disabled:bg-gray-400"
           type="button"
-          disabled={!validateEmail(email)}
-          on:click={loginWithEmail}
+          disabled={!validateEmail(email) || password.length < 6}
+          on:click={registering ? registerUser : loginWithEmail}
         >
-          Sign In
+          {#if !registering}
+            Sign In
+          {:else}
+            Register
+          {/if}
         </button>
       </div>
       <div class="mt-6">
@@ -151,8 +220,19 @@
       </div>
     </form>
     <div class="flex justify-center">
-      <p class="pr-2">New user?</p>
-      <p class="text-blue-400">Register here</p>
+      {#if !registering}
+        <p class="pr-2">New user?</p>
+        <a
+          on:click={() => (registering = !registering)}
+          class="text-blue-400 hover:text-blue-500 hover:cursor-pointer"
+          >Register here</a
+        >
+      {:else}
+        <a
+          on:click={() => (registering = !registering)}
+          class="text-blue-400 hover:text-blue-500 hover:cursor-pointer"
+          >Back to login page</a
+        >{/if}
     </div>
   </div>
 </div>
