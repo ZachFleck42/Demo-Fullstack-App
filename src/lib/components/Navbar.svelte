@@ -123,7 +123,7 @@
                 on:click={() => (show = !show)}
                 href="/app/profile"
                 class="block px-4 py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-150 ease-in-out"
-                >Profile</a
+                >My Profile</a
               >
               <button
                 on:click={logOut}
