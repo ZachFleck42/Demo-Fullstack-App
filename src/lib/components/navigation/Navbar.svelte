@@ -102,7 +102,7 @@
           >
             {#if user?.photoURL}
               <div
-                class="flex h-12 w-12 rounded-full active:ring-2 active:ring-gray-500 hover:ring-2 hover:ring-gray-300 transition ease-in-out duration-150"
+                class="flex h-12 w-12 rounded-full active:ring active:ring-gray-500 hover:ring hover:ring-gray-300 transition ease-in-out duration-150"
               >
                 <div class="m-auto rounded-full">
                   <img
@@ -115,7 +115,7 @@
               </div>
             {:else if user?.email}
               <div
-                class="flex h-12 w-12 rounded-full active:ring-2 active:ring-gray-500 hover:ring-2 hover:ring-gray-300 transition ease-in-out duration-150"
+                class="flex h-12 w-12 rounded-full active:ring active:ring-gray-500 hover:ring hover:ring-gray-300 transition ease-in-out duration-150"
               >
                 <div class="m-auto">
                   {user?.email[0].toUpperCase()}
