@@ -101,7 +101,9 @@
             on:click={() => (show = !show)}
           >
             {#if user?.photoURL}
-              <div class="flex h-12 w-12 rounded-full border-solid">
+              <div
+                class="flex h-12 w-12 rounded-full active:ring-2 active:ring-gray-500 hover:ring-2 hover:ring-gray-300 transition ease-in-out duration-150"
+              >
                 <div class="m-auto rounded-full">
                   <img
                     src={user?.photoURL}
@@ -113,7 +115,7 @@
               </div>
             {:else if user?.email}
               <div
-                class="flex h-12 w-12 rounded-full border-solid bg-blue-500 text-white hover:border-gray-300 hover:border-2"
+                class="flex h-12 w-12 rounded-full active:ring-2 active:ring-gray-500 hover:ring-2 hover:ring-gray-300 transition ease-in-out duration-150"
               >
                 <div class="m-auto">
                   {user?.email[0].toUpperCase()}
