@@ -71,7 +71,7 @@
 
 <div class="mx-auto max-w-8xl px-20 border-b-2 bg-white">
   <div class="flex h-20 w-full items-center justify-between">
-    <div class="flex w-full items-center justify-between">
+    <div class="flex w-full h-full items-center justify-between">
       <div class="flex-shrink-0">
         <a href="/app" class="flex">
           <img
@@ -81,9 +81,10 @@
           />
         </a>
       </div>
-
-      <div class="mr-32">
-        <div class="flex space-x-16 text-xl font-light">
+      <div class="mr-32 flex items-center justify-center h-full">
+        <div
+          class="h-12 flex items-center justify-center space-x-16 text-xl font-light"
+        >
           {#each pages as page}
             <NavbarButton {...page} />
           {/each}
