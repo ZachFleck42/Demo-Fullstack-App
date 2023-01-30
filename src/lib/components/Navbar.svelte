@@ -99,6 +99,7 @@
                     src={user?.photoURL}
                     alt={user?.displayName}
                     class="rounded-full"
+                    referrerpolicy="no-referrer"
                   />
                 </div>
               </div>
