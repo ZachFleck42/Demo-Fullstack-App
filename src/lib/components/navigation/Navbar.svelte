@@ -1,11 +1,13 @@
 <script lang="js">
   import { goto } from "$app/navigation";
+  import { page } from "$app/stores";
   import authStore from "/src/lib/stores/auth.js";
   import { scale } from "svelte/transition";
   import { onMount } from "svelte";
   import { getAuth, signOut } from "firebase/auth";
   import Iris_logo_short from "/src/assets/Iris_logo_short.png";
   import { get } from "svelte/store";
+  import NavbarButton from "$lib/components/navigation/NavbarButton.svelte";
 
   let show = false;
   let menu = null;
@@ -29,6 +31,11 @@
       name: "Support",
     },
   ];
+
+  $: pages[0].active = $page.url.pathname.endsWith(pages[0].href);
+  $: pages[1].active = $page.url.pathname.includes(pages[1].href);
+  $: pages[2].active = $page.url.pathname.includes(pages[2].href);
+  $: pages[3].active = $page.url.pathname.includes(pages[3].href);
 
   onMount(() => {
     user = get(authStore).user;
@@ -78,7 +85,7 @@
       <div class="mr-32">
         <div class="flex space-x-16 text-xl font-light">
           {#each pages as page}
-            <a href={page.href} class="hover:text-gray-400">{page.name}</a>
+            <NavbarButton {...page} />
           {/each}
         </div>
       </div>

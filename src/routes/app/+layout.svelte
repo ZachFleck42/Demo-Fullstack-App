@@ -1,6 +1,6 @@
 <script lang="js">
   import App from "../../App.svelte";
-  import Navbar from "/src/lib/components/Navbar.svelte";
+  import Navbar from "/src/lib/components/navigation/Navbar.svelte";
   import Footer from "/src/lib/components/Footer.svelte";
   import { goto } from "$app/navigation";
 
