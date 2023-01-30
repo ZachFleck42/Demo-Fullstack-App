@@ -92,19 +92,13 @@
       </div>
 
       <div class="flex items-center">
-        <!-- Profile Navigation -->
         <div class="relative" bind:this={menu}>
-          <button
-            class
-            hover:border-gray-300
-            hover:border-2
-            on:click={() => (show = !show)}
-          >
+          <button on:click={() => (show = !show)}>
             {#if user?.photoURL}
               <div
                 class="flex h-12 w-12 rounded-full active:ring active:ring-gray-500 hover:ring hover:ring-gray-300 transition ease-in-out duration-150"
               >
-                <div class="m-auto rounded-full">
+                <div class="m-auto">
                   <img
                     src={user?.photoURL}
                     alt={user?.displayName}
@@ -113,11 +107,11 @@
                   />
                 </div>
               </div>
-            {:else if user?.email}
+            {:else}
               <div
-                class="flex h-12 w-12 rounded-full active:ring active:ring-gray-500 hover:ring hover:ring-gray-300 transition ease-in-out duration-150"
+                class="bg-blue-500 flex h-12 w-12 rounded-full active:ring active:ring-gray-500 hover:ring hover:ring-gray-300 transition ease-in-out duration-150"
               >
-                <div class="m-auto">
+                <div class="m-auto text-2xl font-light text-white">
                   {user?.email[0].toUpperCase()}
                 </div>
               </div>

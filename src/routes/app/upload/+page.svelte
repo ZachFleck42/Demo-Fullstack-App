@@ -9,7 +9,7 @@
     <div class="flex items-center justify-center w-full">
       <label
         for="file-dropzone"
-        class="shadow-inner flex flex-col items-center justify-center h-64 w-96 border-2 border-gray-300 border-solid rounded-lg cursor-pointer bg-white hover:bg-gray-50"
+        class="shadow-inner flex flex-col items-center justify-center h-64 w-96 border-2 border-gray-300 border-solid rounded-lg cursor-pointer bg-white hover:bg-gray-50 active:bg-gray-100"
       >
         <div class="flex flex-col items-center justify-center pt-5 pb-6">
           <svg

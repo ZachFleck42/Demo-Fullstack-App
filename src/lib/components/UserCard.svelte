@@ -12,7 +12,7 @@
   <div class="flex justify-end pt-4 pr-4">
     <button
       id="dropdownButton"
-      class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
+      class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 rounded-lg text-sm p-1.5"
       type="button"
     >
       <span class="sr-only">Open dropdown</span>
@@ -43,12 +43,12 @@
     <div class="flex mt-4 space-x-3 md:mt-6">
       <a
         href="/app/user/{id}"
-        class="inline-flex items-center px-4 py-2 text-sm h-10 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+        class="inline-flex items-center px-4 py-2 text-sm h-10 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 "
         >View Profile</a
       >
       <a
         href="mailto:{email}"
-        class="inline-flex items-center px-4 py-2 text-sm h-10 font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 "
+        class="inline-flex items-center px-4 py-2 text-sm h-10 font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 "
         >Send Email</a
       >
     </div>
