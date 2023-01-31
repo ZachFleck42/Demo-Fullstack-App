@@ -1,21 +1,35 @@
 <script lang="js">
   import { scale } from "svelte/transition";
   import { clickOutside } from "/src/lib/utils/clickoutside.js";
+  import { onMount } from "svelte";
 
-  export let showDropdown;
+  let showDropdown;
+  let dropdownMenu = null;
 
-  const handleClickOutside = () => {
-    showDropdown = false;
-  };
+  onMount(() => {
+    const handleOutsideClick = (event) => {
+      if (showDropdown && !dropdownMenu.contains(event.target)) {
+        showDropdown = false;
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick, false);
+    document.addEventListener("keyup", handleEscape, false);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick, false);
+      document.removeEventListener("keyup", handleEscape, false);
+    };
+  });
 </script>
 
 <button
+  bind:this={dropdownMenu}
   on:click={() => (showDropdown = !showDropdown)}
   id="dropdownButton"
   class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 rounded-lg text-sm p-1.5"
   type="button"
 >
-  <span class="sr-only">Open dropdown</span>
   <svg
     class="w-6 h-6"
     aria-hidden="true"
@@ -29,8 +43,6 @@
 </button>
 {#if showDropdown}
   <div
-    use:clickOutside
-    on:click_outside={handleClickOutside}
     in:scale={{ duration: 100, start: 0.95 }}
     out:scale={{ duration: 75, start: 0.95 }}
     class="overflow-hidden absolute top-14 w-36 bg-white ring-2 ring-gray-200

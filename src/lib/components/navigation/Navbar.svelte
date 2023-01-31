@@ -8,9 +8,9 @@
   import Iris_logo_short from "/src/assets/Iris_logo_short.png";
   import { get } from "svelte/store";
   import NavbarButton from "$lib/components/navigation/NavbarButton.svelte";
-  import { clickOutside } from "/src/lib/utils/clickoutside.js";
 
   let show = false;
+  let menu = null;
   let user;
 
   let pages = [
@@ -39,11 +39,27 @@
 
   onMount(() => {
     user = get(authStore).user;
-  });
 
-  const handleClickOutside = () => {
-    show = false;
-  };
+    const handleOutsideClick = (event) => {
+      if (show && !menu.contains(event.target)) {
+        show = false;
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (show && event.key === "Escape") {
+        show = false;
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick, false);
+    document.addEventListener("keyup", handleEscape, false);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick, false);
+      document.removeEventListener("keyup", handleEscape, false);
+    };
+  });
 
   const logOut = async () => {
     const auth = getAuth();
@@ -76,13 +92,14 @@
       </div>
 
       <div class="flex items-center">
-        <div class="relative">
+        <!-- Profile Navigation -->
+        <div class="relative" bind:this={menu}>
           <button on:click={() => (show = !show)}>
             {#if user?.photoURL}
               <div
                 class="flex h-12 w-12 rounded-full active:ring active:ring-gray-500 hover:ring hover:ring-gray-300 transition ease-in-out duration-150"
               >
-                <div class="m-auto">
+                <div class="m-auto rounded-full">
                   <img
                     src={user?.photoURL}
                     alt={user?.displayName}
@@ -93,9 +110,9 @@
               </div>
             {:else}
               <div
-                class="bg-blue-500 flex h-12 w-12 rounded-full active:ring active:ring-gray-500 hover:ring hover:ring-gray-300 transition ease-in-out duration-150"
+                class="flex h-12 w-12 rounded-full active:ring active:ring-gray-500 hover:ring hover:ring-gray-300 transition ease-in-out duration-150 border-ed"
               >
-                <div class="m-auto text-2xl font-light text-white">
+                <div class="m-auto">
                   {user?.email[0].toUpperCase()}
                 </div>
               </div>
@@ -103,12 +120,10 @@
           </button>
           {#if show}
             <div
-              use:clickOutside
-              on:click_outside={handleClickOutside}
               in:scale={{ duration: 100, start: 0.95 }}
               out:scale={{ duration: 75, start: 0.95 }}
-              class="origin-top-right overflow-hidden absolute right-0 w-36 bg-white ring-2 ring-gray-200
-          rounded-md shadow-sm"
+              class="origin-top-right overflow-hidden absolute right-0 w-36 bg-gray-100
+          rounded-md shadow-md"
             >
               <a
                 on:click={() => (show = !show)}
