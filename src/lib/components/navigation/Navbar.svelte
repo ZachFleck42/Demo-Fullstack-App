@@ -69,21 +69,21 @@
   };
 </script>
 
-<div class="mx-auto max-w-8xl px-20 border-b-2 bg-white">
+<div class="max-w-8xl mx-auto border-b-2 bg-white px-20">
   <div class="flex h-20 w-full items-center justify-between">
-    <div class="flex w-full h-full items-center justify-between">
+    <div class="flex h-full w-full items-center justify-between">
       <div class="flex-shrink-0">
         <a href="/app" class="flex">
           <img
             src={Iris_logo_short}
             alt="Home"
-            class="my-auto h-12 w-auto text-primary-600"
+            class="text-primary-600 my-auto h-12 w-auto"
           />
         </a>
       </div>
-      <div class="mr-32 flex items-center justify-center h-full">
+      <div class="mr-32 flex h-full items-center justify-center">
         <div
-          class="h-12 flex items-center justify-center space-x-16 text-xl font-light"
+          class="flex h-12 items-center justify-center space-x-16 text-xl font-light"
         >
           {#each pages as page}
             <NavbarButton {...page} />
@@ -97,7 +97,7 @@
           <button on:click={() => (show = !show)}>
             {#if user?.photoURL}
               <div
-                class="flex h-12 w-12 rounded-full active:ring active:ring-gray-500 hover:ring hover:ring-gray-300 transition ease-in-out duration-150"
+                class="flex h-12 w-12 rounded-full transition duration-150 ease-in-out hover:ring hover:ring-gray-300 active:ring active:ring-gray-500"
               >
                 <div class="m-auto rounded-full">
                   <img
@@ -110,7 +110,7 @@
               </div>
             {:else}
               <div
-                class="flex h-12 w-12 rounded-full active:ring active:ring-gray-500 hover:ring hover:ring-gray-300 transition ease-in-out duration-150 border-ed"
+                class="border-ed flex h-12 w-12 rounded-full transition duration-150 ease-in-out hover:ring hover:ring-gray-300 active:ring active:ring-gray-500"
               >
                 <div class="m-auto">
                   {user?.email[0].toUpperCase()}
@@ -122,18 +122,18 @@
             <div
               in:scale={{ duration: 100, start: 0.95 }}
               out:scale={{ duration: 75, start: 0.95 }}
-              class="origin-top-right overflow-hidden absolute right-0 w-36 bg-white ring-2 ring-gray-200
-          rounded-md shadow-md"
+              class="absolute right-0 w-36 origin-top-right overflow-hidden rounded-md bg-white shadow-md
+          ring-2 ring-gray-200"
             >
               <a
                 on:click={() => (show = !show)}
                 href="/app/profile"
-                class="block px-4 py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-150 ease-in-out"
+                class="block px-4 py-2 transition duration-150 ease-in-out hover:bg-gray-200 active:bg-gray-300"
                 >My Profile</a
               >
               <button
                 on:click={logOut}
-                class="block w-full text-left px-4 py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-150 ease-in-out"
+                class="block w-full px-4 py-2 text-left transition duration-150 ease-in-out hover:bg-gray-200 active:bg-gray-300"
                 >Sign Out</button
               >
             </div>

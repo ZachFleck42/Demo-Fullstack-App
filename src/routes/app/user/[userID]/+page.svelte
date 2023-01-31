@@ -7,7 +7,7 @@
   export let data;
 </script>
 
-<div class="flex justify-center mt-64">
+<div class="mt-64 flex justify-center">
   <div class="m-auto">
     <HorizontalUserCard user={data} />
   </div>

@@ -1,10 +1,10 @@
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 
 const userStore = writable({
-    users: []
+  users: [],
 });
 
 export default {
-    subscribe: userStore.subscribe,
-    set: userStore.set
-}
+  subscribe: userStore.subscribe,
+  set: userStore.set,
+};

@@ -7,6 +7,6 @@
 <a
   {href}
   class={active
-    ? "border-b-2 border-gray-300 h-full flex items-center justify-center hover:text-gray-600"
+    ? "flex h-full items-center justify-center border-b-2 border-gray-300 hover:text-gray-600"
     : "border-b-2 border-transparent hover:text-gray-600"}>{name}</a
 >

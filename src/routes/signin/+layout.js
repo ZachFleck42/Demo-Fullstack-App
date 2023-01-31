@@ -5,7 +5,7 @@ export const ssr = false;
 export const prerender = false;
 
 export async function load() {
-    const user = get(authStore)?.user;
-    if (user) return {loggedIn: true}
-    else return {loggedIn: false}
+  const user = get(authStore)?.user;
+  if (user) return { loggedIn: true };
+  else return { loggedIn: false };
 }

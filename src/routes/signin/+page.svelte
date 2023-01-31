@@ -122,22 +122,22 @@
   };
 </script>
 
-<div class="flex flex-col h-full w-full justify-center bg-white border-">
-  <div class="mx-auto h-24 my-8">
+<div class="border- flex h-full w-full flex-col justify-center bg-white">
+  <div class="mx-auto my-8 h-24">
     <img src={Iris_Logo} alt="Iris Automation logo" />
   </div>
 
-  <div class="w-full max-w-sm mx-auto">
+  <div class="mx-auto w-full max-w-sm">
     <form
-      class="shadow-md rounded px-8 pt-6 pb-8 mb-4 border-t-gray-50 border-t-2"
+      class="mb-4 rounded border-t-2 border-t-gray-50 px-8 pt-6 pb-8 shadow-md"
     >
       <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+        <label class="mb-2 block text-sm font-bold text-gray-700" for="email">
           Email
         </label>
         <input
           bind:value={email}
-          class="shadow-inner appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-blue-300"
+          class="w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow-inner focus:outline-blue-300"
           id="username"
           type="text"
           autocomplete="email"
@@ -146,14 +146,14 @@
       </div>
       <div class="">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 mt-6"
+          class="mb-2 mt-6 block text-sm font-bold text-gray-700"
           for="password"
         >
           Password
         </label>
         <input
           bind:value={password}
-          class="shadow-inner appearance-none border w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-blue-300"
+          class="mb-3 w-full appearance-none border py-2 px-3 leading-tight text-gray-700 shadow-inner focus:outline-blue-300"
           id="password"
           type="password"
           placeholder="********"
@@ -165,14 +165,14 @@
       {#if registering}
         <div class="">
           <label
-            class="block text-gray-700 text-sm font-bold mb-2"
+            class="mb-2 block text-sm font-bold text-gray-700"
             for="password"
           >
             Confirm Password
           </label>
           <input
             bind:value={confirmPassword}
-            class="shadow-inner appearance-none border w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-blue-300"
+            class="mb-3 w-full appearance-none border py-2 px-3 leading-tight text-gray-700 shadow-inner focus:outline-blue-300"
             id="confirmPassword"
             type="password"
             placeholder="********"
@@ -188,7 +188,7 @@
       <div />
       <div class="flex items-center">
         <button
-          class="mx-auto mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded w-full transition duration-150 ease-in-out disabled:bg-gray-400"
+          class="mx-auto mt-4 w-full rounded bg-blue-500 py-2 px-4 font-bold text-white transition duration-150 ease-in-out hover:bg-blue-600 active:bg-blue-700 disabled:bg-gray-400"
           type="button"
           disabled={!validateEmail(email) ||
             password.length < 6 ||
@@ -205,10 +205,10 @@
       <div class="mt-6">
         <div class="relative">
           <div class="absolute inset-0 flex items-center">
-            <div class="w-full border-t border-gray-500 mb-3" />
+            <div class="mb-3 w-full border-t border-gray-500" />
           </div>
           <div class="relative flex justify-center">
-            <span class="select-none bg-white px-3 mb-4 font-normal">
+            <span class="mb-4 select-none bg-white px-3 font-normal">
               Or continue with
             </span>
           </div>
@@ -216,7 +216,7 @@
       </div>
       <div class="flex items-center">
         <button
-          class="mx-auto py-2 px-4 w-full border-solid border-2 rounded mt-2 hover:border-blue-300 hover:bg-gray-50 active:bg-gray-200 transition duration-150 ease-in-out"
+          class="mx-auto mt-2 w-full rounded border-2 border-solid py-2 px-4 transition duration-150 ease-in-out hover:border-blue-300 hover:bg-gray-50 active:bg-gray-200"
           type="button"
           on:click={loginWithGoogle}
         >
@@ -234,13 +234,13 @@
         <p class="pr-2">New user?</p>
         <a
           on:click={() => (registering = !registering)}
-          class="text-blue-400 hover:text-blue-500 hover:cursor-pointer"
+          class="text-blue-400 hover:cursor-pointer hover:text-blue-500"
           >Register here</a
         >
       {:else}
         <a
           on:click={() => (registering = !registering)}
-          class="text-blue-400 hover:text-blue-500 hover:cursor-pointer"
+          class="text-blue-400 hover:cursor-pointer hover:text-blue-500"
           >Back to login page</a
         >{/if}
     </div>

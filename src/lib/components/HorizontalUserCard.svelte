@@ -9,16 +9,16 @@
 
 <div class="w-auto">
   <div
-    class="flex items-center bg-white border border-gray-200 rounded-lg shadow "
+    class="flex items-center rounded-lg border border-gray-200 bg-white shadow "
   >
     {#if avatar}
       <img
-        class="w-32 h-32 m-5 rounded-full shadow-lg"
+        class="m-5 h-32 w-32 rounded-full shadow-lg"
         src={avatar}
         alt="{first_name} {last_name}'s Avatar"
       />
     {:else}
-      <div class="bg-blue-500 flex h-28 w-28 m-5 rounded-full shadow-lg">
+      <div class="m-5 flex h-28 w-28 rounded-full bg-blue-500 shadow-lg">
         <div class="m-auto text-6xl font-light text-white">
           {user?.email[0].toUpperCase()}
         </div>
@@ -33,6 +33,6 @@
         {email}
       </p>
     </div>
-    <div class="flex flex-row pl-6 space-x-6" />
+    <div class="flex flex-row space-x-6 pl-6" />
   </div>
 </div>

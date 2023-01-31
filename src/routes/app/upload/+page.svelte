@@ -4,17 +4,17 @@
   $: if (browser) document.title = "Upload";
 </script>
 
-<div class="flex justify-center mt-72">
+<div class="mt-72 flex justify-center">
   <div class="m-auto text-center">
-    <div class="flex items-center justify-center w-full">
+    <div class="flex w-full items-center justify-center">
       <label
         for="file-dropzone"
-        class="shadow-inner flex flex-col items-center justify-center h-64 w-96 border-2 border-gray-300 border-solid rounded-lg cursor-pointer bg-white hover:bg-gray-50 active:bg-gray-100"
+        class="flex h-64 w-96 cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-solid border-gray-300 bg-white shadow-inner hover:bg-gray-50 active:bg-gray-100"
       >
         <div class="flex flex-col items-center justify-center pt-5 pb-6">
           <svg
             aria-hidden="true"
-            class="w-10 h-10 mb-3 text-gray-400"
+            class="mb-3 h-10 w-10 text-gray-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

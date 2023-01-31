@@ -18,6 +18,6 @@
   });
 </script>
 
-<div class="bg-gray-100 h-screen">
+<div class="h-screen bg-gray-100">
   <slot />
 </div>

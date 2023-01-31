@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	mode: 'jit',
-	content: ["./src/**/*.{html,js,svelte}"],
-	darkMode: 'class',
+  mode: "jit",
+  content: ["./src/**/*.{html,js,svelte}"],
+  darkMode: "class",
   theme: {
     extend: {},
   },
   variants: {},
   plugins: [],
-}
+};

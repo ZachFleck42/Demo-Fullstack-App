@@ -10,7 +10,7 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 1385.000000 1396.000000"
     preserveAspectRatio="xMidYMid meet"
-    class="fill-gray-200 h-48 w-48 mt-80"
+    class="mt-80 h-48 w-48 fill-gray-200"
   >
     <g
       transform="translate(0.000000,1396.000000) scale(0.100000,-0.100000)"

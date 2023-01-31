@@ -5,19 +5,19 @@ import preprocess from "svelte-preprocess";
 const config = {
   preprocess: preprocess({
     defaults: {
-      style: 'postcss',
+      style: "postcss",
     },
     postcss: true,
   }),
 
-	kit: {
-		adapter: adapter({
-			pages: 'public',
-			assets: 'public',
-			fallback: 'app.html',
-			precompress: true,
-		}),
-	},
+  kit: {
+    adapter: adapter({
+      pages: "public",
+      assets: "public",
+      fallback: "app.html",
+      precompress: true,
+    }),
+  },
 };
 
 export default config;
