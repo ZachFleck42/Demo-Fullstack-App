@@ -14,11 +14,9 @@
     };
 
     document.addEventListener("click", handleOutsideClick, false);
-    document.addEventListener("keyup", handleEscape, false);
 
     return () => {
       document.removeEventListener("click", handleOutsideClick, false);
-      document.removeEventListener("keyup", handleEscape, false);
     };
   });
 </script>
