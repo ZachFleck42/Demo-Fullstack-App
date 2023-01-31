@@ -1,6 +1,5 @@
 <script lang="js">
   import { scale } from "svelte/transition";
-  import { clickOutside } from "/src/lib/utils/clickoutside.js";
   import { onMount } from "svelte";
 
   let showDropdown;

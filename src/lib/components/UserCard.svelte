@@ -1,5 +1,5 @@
 <script lang="js">
-  import DropdownMenu from "./DropdownMenu.svelte";
+  import DropdownMenu from "/src/lib/components/DropdownMenu.svelte";
 
   export let user = {};
 
