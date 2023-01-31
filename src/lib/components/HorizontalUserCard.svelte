@@ -11,11 +11,19 @@
   <div
     class="flex items-center bg-white border border-gray-200 rounded-lg shadow "
   >
-    <img
-      class="w-32 h-32 m-5 rounded-full shadow-lg"
-      src={avatar}
-      alt="{first_name} {last_name}'s Avatar"
-    />
+    {#if avatar}
+      <img
+        class="w-32 h-32 m-5 rounded-full shadow-lg"
+        src={avatar}
+        alt="{first_name} {last_name}'s Avatar"
+      />
+    {:else}
+      <div class="bg-blue-500 flex h-28 w-28 m-5 rounded-full shadow-lg">
+        <div class="m-auto text-6xl font-light text-white">
+          {user?.email[0].toUpperCase()}
+        </div>
+      </div>
+    {/if}
     <div class="flex flex-col justify-between p-4">
       <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
         {first_name}
