@@ -24,6 +24,7 @@
   let password = "";
   let confirmPassword = "";
   let registering = false;
+  let error = "";
 
   const validateEmail = (email) => {
     const regex =
@@ -35,22 +36,22 @@
 
   const registerUser = async () => {
     if (!password) {
-      console.log("ERROR: Missing password");
+      error = "Error: Please enter a password";
       return;
     }
 
     if (!validateEmail(email)) {
-      console.log("ERROR: Invalid email");
+      error = "Error: Please enter a valid email";
       return;
     }
 
     if (password !== confirmPassword) {
-      console.log("ERROR: Passwords do not match");
+      error = "Error: Passwords do not match";
       return;
     }
 
     if (password.length < 6) {
-      console.log("ERROR: Password must be at least 6 characters");
+      error = "Error: Password must be at least 6 characters";
       return;
     }
 
@@ -67,19 +68,20 @@
       });
       await goto("/app");
     } catch (e) {
-      console.log(e);
+      error =
+        "Error: Signin failed. Please try again later and contact support if error persists.";
       return;
     }
   };
 
   const loginWithEmail = async () => {
     if (!password) {
-      console.log("ERROR: Missing password");
+      error = "Error: Please enter a password";
       return;
     }
 
     if (!validateEmail(email)) {
-      console.log("ERROR: Invalid email");
+      error = "Error: Please enter a valid email";
       return;
     }
 
@@ -92,7 +94,8 @@
       });
       await goto("/app");
     } catch (e) {
-      console.log(e);
+      error =
+        "Error: Signin failed. Please try again later and contact support if error persists.";
       return;
     }
   };
@@ -108,7 +111,8 @@
       });
       await goto("/app");
     } catch (e) {
-      console.log(e);
+      error =
+        "Error: Signin failed. Please try again later or contact support if error persists.";
       return;
     }
   };
@@ -140,7 +144,7 @@
           placeholder="you@example.com"
         />
       </div>
-      <div class="mb-4">
+      <div class="">
         <label
           class="block text-gray-700 text-sm font-bold mb-2 mt-6"
           for="password"
@@ -159,7 +163,7 @@
         />
       </div>
       {#if registering}
-        <div class="mb-4">
+        <div class="">
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
             for="password"
@@ -178,9 +182,13 @@
           />
         </div>
       {/if}
+      {#if error}
+        <p class="text-red-500">{error}</p>
+      {/if}
+      <div />
       <div class="flex items-center">
         <button
-          class="mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded w-full transition duration-150 ease-in-out disabled:bg-gray-400"
+          class="mx-auto mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 active:bg-blue-700 rounded w-full transition duration-150 ease-in-out disabled:bg-gray-400"
           type="button"
           disabled={!validateEmail(email) ||
             password.length < 6 ||
