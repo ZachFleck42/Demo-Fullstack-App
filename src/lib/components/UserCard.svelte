@@ -1,4 +1,6 @@
 <script lang="js">
+  import DropdownMenu from "./DropdownMenu.svelte";
+
   export let user = {};
 
   let first_name = user.first_name ?? "John";
@@ -9,25 +11,8 @@
 </script>
 
 <div class="bg-white border border-gray-200 rounded-lg shadow my-auto mx-8">
-  <div class="flex justify-end pt-4 pr-4">
-    <button
-      id="dropdownButton"
-      class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 rounded-lg text-sm p-1.5"
-      type="button"
-    >
-      <span class="sr-only">Open dropdown</span>
-      <svg
-        class="w-6 h-6"
-        aria-hidden="true"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        ><path
-          d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"
-        /></svg
-      >
-    </button>
-    <!-- Dropdown menu -->
+  <div class="relative flex justify-end pt-4 pr-4">
+    <DropdownMenu />
   </div>
   <div class="flex flex-col items-center pb-10">
     <img

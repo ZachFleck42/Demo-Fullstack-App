@@ -8,9 +8,9 @@
   import Iris_logo_short from "/src/assets/Iris_logo_short.png";
   import { get } from "svelte/store";
   import NavbarButton from "$lib/components/navigation/NavbarButton.svelte";
+  import { clickOutside } from "/src/lib/utils/clickoutside.js";
 
   let show = false;
-  let menu = null;
   let user;
 
   let pages = [
@@ -39,27 +39,11 @@
 
   onMount(() => {
     user = get(authStore).user;
-
-    const handleOutsideClick = (event) => {
-      if (show && !menu.contains(event.target)) {
-        show = false;
-      }
-    };
-
-    const handleEscape = (event) => {
-      if (show && event.key === "Escape") {
-        show = false;
-      }
-    };
-
-    document.addEventListener("click", handleOutsideClick, false);
-    document.addEventListener("keyup", handleEscape, false);
-
-    return () => {
-      document.removeEventListener("click", handleOutsideClick, false);
-      document.removeEventListener("keyup", handleEscape, false);
-    };
   });
+
+  const handleClickOutside = () => {
+    show = false;
+  };
 
   const logOut = async () => {
     const auth = getAuth();
@@ -92,7 +76,7 @@
       </div>
 
       <div class="flex items-center">
-        <div class="relative" bind:this={menu}>
+        <div class="relative">
           <button on:click={() => (show = !show)}>
             {#if user?.photoURL}
               <div
@@ -119,6 +103,8 @@
           </button>
           {#if show}
             <div
+              use:clickOutside
+              on:click_outside={handleClickOutside}
               in:scale={{ duration: 100, start: 0.95 }}
               out:scale={{ duration: 75, start: 0.95 }}
               class="origin-top-right overflow-hidden absolute right-0 w-36 bg-white ring-2 ring-gray-200
