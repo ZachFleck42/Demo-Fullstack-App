@@ -1,7 +1,8 @@
 <script lang="js">
   import { browser } from "$app/environment";
   import HorizontalUserCard from "../../../../lib/components/HorizontalUserCard.svelte";
-  $: if (browser) document.title = "Home";
+
+  $: if (browser) document.title = `User ${data.id}`;
 
   export let data;
 </script>
