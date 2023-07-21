@@ -110,9 +110,9 @@
               </div>
             {:else}
               <div
-                class="border-ed flex h-12 w-12 rounded-full transition duration-150 ease-in-out hover:ring hover:ring-gray-300 active:ring active:ring-gray-500"
+                class="bg-orange-300 border-ed flex h-12 w-12 rounded-full transition duration-150 ease-in-out hover:ring hover:ring-gray-300 active:ring active:ring-gray-500"
               >
-                <div class="m-auto">
+                <div class="m-auto font-semibold">
                   {user?.email[0].toUpperCase()}
                 </div>
               </div>
